@@ -1,0 +1,22 @@
+{
+  "name": "practicalprogramming",
+  "description": "Learn to code!",
+  "main": "index.js",
+  "authors": [
+    "Adrian Sonnenschein"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/practicalprogramming-io/practicalprogramming",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}

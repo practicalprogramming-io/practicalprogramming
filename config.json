@@ -1,0 +1,12 @@
+{
+  "db": {
+    "client": "postgres",
+    "connection": {
+      "host": "127.0.0.1",
+      "user": "practicalprogramming_user",
+      "password": "password",
+      "database": "practicalprogramming_db",
+      "charset": "utf8"
+    }
+  }
+}
