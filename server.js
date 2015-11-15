@@ -91,6 +91,15 @@ server.post('/jobs/:job/',
 ;
 
 // Public Routes ===============================================================
+server.use('/assets', express.static(__dirname + '/public/assets/'));
+server.use('/js', express.static(__dirname + '/public/js/'));
+server.use('/style', express.static(__dirname + '/public/css/'));
+
+server.get('/',
+  function (req, res, next) {
+    return res.render('index.html');
+  })
+;
 
 module.exports = function (callback) {
   callback(server);
