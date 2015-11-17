@@ -94,6 +94,7 @@ server.post('/jobs/:job/',
 server.use('/assets', express.static(__dirname + '/public/assets/'));
 server.use('/js', express.static(__dirname + '/public/js/'));
 server.use('/style', express.static(__dirname + '/public/css/'));
+server.use('/images', express.static(__dirname + '/public/images/'));
 
 server.get('/',
   function (req, res, next) {
