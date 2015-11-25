@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/style/base.css">
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -32,50 +32,31 @@
                         <li>
                             <a href="/about">About</a>
                         </li>
+                        {% if is_authenticated %}
+                            <li>
+                                <a href="/logout">Logout</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="/login">Login</a>
+                            </li>
+                            <li>
+                                <a href="/register">Register</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="jumbotron">
+
+        {% block content %}
+        {% endblock %}
+
+        <footer>
             <div class="container">
-                <h2>
-                    <div class="static">practicalprogramming.io is for&nbsp;</div>
-                    <div class="magic"></div>
-                </h2>
-                <p>
-                    Lessons and resources about the craft of coding
-                    and problem solving with computers in today's industry -
-                    written by professional software engineers!
-                </p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <h3>Lessons and resources</h3>
-                <div class="col-md-1">
-                    <img src="/images/logos/javascript.png" class="img-responsive">
-                </div>
-                <div class="col-md-2">
-                    <img src="/images/logos/mongodb-black.png" class="img-responsive">
-                </div>
-                <div class="col-md-2">
-                    <img src="/images/logos/nodejs.png" class="img-responsive">
-                </div>
-                <div class="col-md-1">
-                    <img src="/images/logos/postgresql.png" class="img-responsive">
-                </div>
-                <div class="col-md-2">
-                    <img src="/images/logos/python.png" class="img-responsive">
-                </div>
-            </div>
-            <div class="row">
-                <h3>Recent lessons and resources</h3>
-            </div>
-            <hr>
-            <footer>
                 <p>2015</p>
-            </footer>
-        </div>
+            </div>
+        </footer>
         <script src="/assets/jquery/dist/jquery.min.js"></script>
         <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="/js/app.js"></script>

@@ -34,9 +34,19 @@ server.use(passport.session());
 
 server.enable('trust proxy');
 
-function checkAuthorization (req, res, next) {
+function requireAuthorization (req, res, next) {
   if (req.isAuthenticated && req.user.id) return next();
   else res.status(401).send("Unauthorized request!");
+}
+
+function isAuthenticated (req, res, next) {
+  if (req.isAuthenticated && req.user && req.user.id) {
+    req.userIsAuthenticated = true;
+  }
+  else {
+    req.userIsAuthenticated = false;
+  }
+  return next();
 }
 
 // Register, Login & Logout Routes =============================================
@@ -48,11 +58,11 @@ server.post('/login/',
   })
 ;
 
-server.post('/logout/',
-  checkAuthorization,
+server.get('/logout/',
+  requireAuthorization,
   function (req, res, next) {
     req.logout();
-    res.status(200).end();
+    res.redirect('/');
   })
 ;
 
@@ -62,6 +72,19 @@ server.post('/register/',
     var username = req.user.get('username');
     res.redirect('/users/' + username + '/');
   })
+;
+
+// Admin Routes ================================================================
+server.get('/admin/tutorials/',
+  function (req, res, next) {
+    return next();
+  }, routes.getAdminTutorials)
+;
+
+server.post('/admin/tutorials/',
+  function (req, res, next) {
+    return next();
+  }, routes.createAdminTutorials)
 ;
 
 // Tutorials and Tutorials Admin Routes ========================================
@@ -97,8 +120,39 @@ server.use('/style', express.static(__dirname + '/public/css/'));
 server.use('/images', express.static(__dirname + '/public/images/'));
 
 server.get('/',
+  isAuthenticated,
   function (req, res, next) {
-    return res.render('index.html');
+    return res.render('home.html', {
+      is_authenticated: req.userIsAuthenticated
+    })
+  })
+;
+
+server.get('/login/',
+  isAuthenticated,
+  function (req, res, next) {
+    return res.render('login.html', {
+      is_authenticated: req.userIsAuthenticated
+    })
+  })
+;
+
+server.get('/register/',
+  isAuthenticated,
+  function (req, res, next) {
+    return res.render('register.html', {
+      is_authenticated: req.userIsAuthenticated
+    })
+  })
+;
+
+server.get('/users/:user/',
+  requireAuthorization,
+  isAuthenticated,
+  function (req, res, next) {
+    return res.render('users.html', {
+      is_authenticated: req.userIsAuthenticated
+    })
   })
 ;
 
