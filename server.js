@@ -24,7 +24,8 @@ server.use(session({
   resave: true
 }));
 
-nunjucks.configure('public/views', {
+nunjucks.configure(
+  ['views', 'views/admin'], {
   autoescape: true,
   express: server
 });
@@ -47,6 +48,21 @@ function isAuthenticated (req, res, next) {
     req.userIsAuthenticated = false;
   }
   return next();
+}
+
+function isAdmin (req, res, next) {
+  new database.Users({users_id: req.user.id})
+    .fetch({withRelated: 'role'})
+    .then(function (user) {
+      var role = user.relations.role.get('role');
+      if (role === 'admin') req.isAdmin = true;
+      else req.isAdmin = false;
+      return next();
+    })
+    .catch(function (error) {
+      return next();
+    })
+  ;
 }
 
 // Register, Login & Logout Routes =============================================
@@ -149,10 +165,31 @@ server.get('/register/',
 server.get('/users/:user/',
   requireAuthorization,
   isAuthenticated,
+  isAdmin,
   function (req, res, next) {
     return res.render('users.html', {
-      is_authenticated: req.userIsAuthenticated
+      is_authenticated: req.userIsAuthenticated,
+      username: req.user.attributes.username,
+      is_admin: req.isAdmin
     })
+  })
+;
+
+server.get('/admin/:page/',
+  requireAuthorization,
+  isAuthenticated,
+  isAdmin,
+  function (req, res, next) {
+    var page = req.params.page;
+    if (req.isAdmin) {
+      return res.render('admin/' + page + '.html', {
+        is_authenticated: req.userIsAuthenticated,
+        username: req.user.attributes.username,
+      })
+    }
+    else {
+      return res.status(401).send("Unauthorized request!");
+    }
   })
 ;
 

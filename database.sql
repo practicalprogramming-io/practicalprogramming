@@ -23,6 +23,8 @@ CREATE TABLE tutorials (
     tutorials_id SERIAL PRIMARY KEY,
     users_id INTEGER REFERENCES users(users_id) ON DELETE CASCADE,
     url_path VARCHAR,
+    title VARCHAR,
+    description VARCHAR,
     content_markdown VARCHAR,
     content_html VARCHAR,
     created_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP

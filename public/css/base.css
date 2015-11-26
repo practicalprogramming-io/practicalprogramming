@@ -1,3 +1,19 @@
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
 .jumbotron .container h2 {
   display: inline-flex;
+}
+#create-tutorial {
+  height: 100%;
+}
+#create-tutorial textarea#content.form-control {
+  height: 490px;
+}
+footer {
+  height: 30px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }

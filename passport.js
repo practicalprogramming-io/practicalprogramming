@@ -9,18 +9,29 @@ function authenticate (passport) {
       .then(function (model) {
         if (model) return callback(new Error("User exists!"));
 
-        var data = {
-          username: username,
-          email: req.body.email,
-          password: this.generateHash(password)
-        };
+        var self = this;
 
-        new db.Users(data).save()
-          .then(function (user) {
-            return callback(null, user);
+        new db.UsersRoles({role: 'user'}).fetch()
+          .then(function (role) {
+
+            var data = {
+              username: username,
+              email: req.body.email,
+              password: self.generateHash(password),
+              users_roles_id: role.id
+            };
+
+            new db.Users(data).save()
+              .then(function (user) {
+                return callback(null, user);
+              })
+              .catch(function (error) {
+                return callback(error);
+              })
+            ;
           })
           .catch(function (error) {
-            return callback(error);
+            callback(error);
           })
         ;
 
