@@ -40,6 +40,20 @@ function requireAuthorization (req, res, next) {
   else res.status(401).send("Unauthorized request!");
 }
 
+function requireAdmin (req, res, next) {
+  new database.Users({users_id: req.user.id})
+    .fetch({withRelated: 'role'})
+    .then(function (user) {
+      var role = user.relations.role.get('role');
+      if (role === 'admin') return next();
+      else res.status(401).send("Unauthorized request!");
+    })
+    .catch(function (error) {
+      return res.status(401).send("Unauthorized request!");
+    })
+  ;
+}
+
 function isAuthenticated (req, res, next) {
   if (req.isAuthenticated && req.user && req.user.id) {
     req.userIsAuthenticated = true;
@@ -63,6 +77,16 @@ function isAdmin (req, res, next) {
       return next();
     })
   ;
+}
+
+function getUsername (req, res, next) {
+  if (req.isAuthenticated && req.user && req.user.id) {
+    req.username = req.user.attributes.username;
+  }
+  else {
+    req.username = null;
+  }
+  return next();
 }
 
 // Register, Login & Logout Routes =============================================
@@ -90,30 +114,25 @@ server.post('/register/',
   })
 ;
 
-// Admin Routes ================================================================
-server.get('/admin/tutorials/',
-  function (req, res, next) {
-    return next();
-  }, routes.getAdminTutorials)
-;
-
-server.post('/admin/tutorials/',
-  function (req, res, next) {
-    return next();
-  }, routes.createAdminTutorials)
-;
-
 // Tutorials and Tutorials Admin Routes ========================================
+server.get('/tutorials/',
+  function (req, res, next) {
+    return next();
+  }, routes.getTutorials);
+;
+
 server.get('/tutorials/:tutorial/',
   function (req, res, next) {
-
-  })
+    return next();
+  }, routes.getTutorial);
 ;
 
-server.post('/tutorials/:tutorial/',
+server.post('/tutorials/',
+  requireAuthorization,
+  requireAdmin,
   function (req, res, next) {
-
-  })
+    return next();
+  }, routes.createTutorials)
 ;
 
 // Jobs Routes =================================================================
@@ -137,11 +156,10 @@ server.use('/images', express.static(__dirname + '/public/images/'));
 
 server.get('/',
   isAuthenticated,
+  getUsername,
   function (req, res, next) {
-    return res.render('home.html', {
-      is_authenticated: req.userIsAuthenticated
-    })
-  })
+    return next();
+  }, routes.getHomePage)
 ;
 
 server.get('/login/',
@@ -177,19 +195,14 @@ server.get('/users/:user/',
 
 server.get('/admin/:page/',
   requireAuthorization,
+  requireAdmin,
   isAuthenticated,
-  isAdmin,
   function (req, res, next) {
     var page = req.params.page;
-    if (req.isAdmin) {
-      return res.render('admin/' + page + '.html', {
-        is_authenticated: req.userIsAuthenticated,
-        username: req.user.attributes.username,
-      })
-    }
-    else {
-      return res.status(401).send("Unauthorized request!");
-    }
+    return res.render('admin/' + page + '.html', {
+      is_authenticated: req.userIsAuthenticated,
+      username: req.user.attributes.username
+    })
   })
 ;
 

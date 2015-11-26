@@ -7,6 +7,7 @@ var bcrypt = require('bcrypt-nodejs')
   , UsersRoles
   , UsersProfiles
   , Tutorials
+  , TutorialsRecent
   , Tags
   , TutorialsTags
   , Jobs
@@ -60,6 +61,14 @@ Tutorials = bookshelf.Model.extend({
   }
 });
 
+TutorialsRecent = knex('tutorials')
+  .join('users', 'tutorials.users_id', '=', 'users.users_id')
+  .select('tutorials.url_path', 'tutorials.title', 'tutorials.created_datetime',
+    'tutorials.description', 'users.username')
+  .limit(20)
+  .orderBy('tutorials.created_datetime', 'desc')
+;
+
 Tags = bookshelf.Model.extend({
   tableName: 'tags',
   idAttribute: 'tags_id'
@@ -104,8 +113,9 @@ module.exports = {
   UsersRoles: UsersRoles,
   UsersProfiles: UsersProfiles,
   Tutorials: Tutorials,
+  TutorialsRecent: TutorialsRecent,
   Tags: Tags,
   TutorialsTags: TutorialsTags,
   Jobs: Jobs,
-  JobsTags: JobsTags
+  JobsTags: JobsTags,
 };

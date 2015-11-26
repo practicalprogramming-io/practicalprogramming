@@ -8,7 +8,7 @@
             <div class="magic"></div>
         </h2>
         <p>
-            Lessons and resources about the craft of coding
+            Tutorials and resources about the craft of coding
             and problem solving with computers in today's industry -
             written by professional software engineers!
         </p>
@@ -16,7 +16,6 @@
 </div>
 <div class="container">
     <div class="row">
-        <h3>Lessons and resources</h3>
         <div class="col-md-1">
             <img src="/images/logos/javascript.png" class="img-responsive">
         </div>
@@ -34,7 +33,12 @@
         </div>
     </div>
     <div class="row">
-        <h3>Recent lessons and resources</h3>
+        <h3>Recent Tutorials</h3>
+        <ul class="list-unstyled">
+            {% for tutorial in tutorials %}
+                {% include "tutorials/tutorials_list.html" %}
+            {% endfor %}
+        </ul>
     </div>
     <hr>
 </div>

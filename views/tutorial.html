@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h3>{{ title }}</h3>
+    <p>Author: {{ author }}</p>
+    {{ content|safe }}
+</div>
+
+{% endblock %}
