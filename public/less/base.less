@@ -1,10 +1,93 @@
+@pastel-gray: #454545;
+@pastel-red: #F25F5C;
+@pastel-yellow: #FFE066;
+@pastel-blue: #247BA0;
+@pastel-aqua: #70C1B3;
+@white: #FFFFFF;
+@black: #000000;
+
+body {
+  background: url("/images/backgrounds/paper.jpg") repeat 0 0 @white;
+  color: @pastel-gray;
+}
+
+.img-js {
+  width: 65px;
+  height: 65px;
+}
+
+.img-mongo {
+  width: 160px;
+  height: 43.4531px;
+}
+
+.img-node {
+  width: 160px;
+  height: 43.1875px;
+}
+
+.img-pg {
+  width: 65px;
+  height: 65px;
+}
+
+.img-py {
+  width: 160px;
+  height: 47.4063px;
+}
+
+.navbar {
+  color: @black;
+  background-color: transparent;
+  margin-bottom: 0px;
+}
+
+.navbar-inverse {
+
+  border-color: transparent;
+
+  .navbar-brand {
+    color: @black;
+    font-weight: bold;
+  }
+
+  .navbar-brand:hover {
+    color: @pastel-blue;
+  }
+
+  .navbar-nav li a {
+    color: @black;
+  }
+
+  .navbar-nav li a:hover {
+    color: @pastel-blue;
+  }
+
+}
+
 .row {
     margin-right: 0;
     margin-left: 0;
 }
 
-.jumbotron .container h2 {
-    display: inline-flex;
+.row.logos {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.jumbotron {
+
+  background-color: @pastel-gray;
+  color: @white;
+
+  .container h2 {
+      display: inline-flex;
+  }
+
+  .magic {
+    color: @pastel-red;
+  }
+
 }
 
 #create-tutorial {

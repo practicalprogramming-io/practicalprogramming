@@ -2,9 +2,9 @@
 
   function magicHeader () {
     var titleMagic = $('.jumbotron .container h2 .magic')
-      , headers = ['developers', 'creatives', 'learners', 'teachers',
-        'students', 'dreamers', 'thinkers', 'professionals', 'experts',
-        'novices', 'engineers', 'artists']
+      , headers = ['developers', 'teachers', 'students', 'dreamers', 'thinkers',
+        'professionals', 'experts', 'tinkerers', 'novices', 'engineers',
+        'artists']
       , random = Math.floor(Math.random()*headers.length)
     ;
 

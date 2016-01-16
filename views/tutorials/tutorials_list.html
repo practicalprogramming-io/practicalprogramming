@@ -1,7 +1,7 @@
 <li>
-    {{ tutorial.url_path }}
+  <a href="/tutorials/{{ tutorial.url_path }}">
     {{ tutorial.title }}
-    {{ tutorial.created_datetime }}
-    {{ tutorial.description }}
-    {{ tutorial.username }}
+  </a>
+  <br/>
+  {{ tutorial.description }}
 </li>
