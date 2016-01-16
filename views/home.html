@@ -15,25 +15,29 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row logos">
         <div class="col-md-1">
-            <img src="/images/logos/javascript.png" class="img-responsive">
+            <img src="/images/logos/javascript.png" class="img-js">
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-2">
-            <img src="/images/logos/mongodb-black.png" class="img-responsive">
+            <img src="/images/logos/mongodb-black.png" class="img-mongo">
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-2">
-            <img src="/images/logos/nodejs.png" class="img-responsive">
+            <img src="/images/logos/nodejs.png" class="img-node">
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-1">
-            <img src="/images/logos/postgresql.png" class="img-responsive">
+            <img src="/images/logos/postgresql.png" class="img-pg">
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-2">
-            <img src="/images/logos/python.png" class="img-responsive">
+            <img src="/images/logos/python.png" class="img-py">
         </div>
     </div>
     <div class="row">
-        <h3>Recent Tutorials</h3>
+        <h3>Most Recent Tutorials</h3>
         <ul class="list-unstyled">
             {% for tutorial in tutorials %}
                 {% include "tutorials/tutorials_list.html" %}

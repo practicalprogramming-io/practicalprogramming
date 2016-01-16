@@ -28,7 +28,18 @@ module.exports = function (db) {
     },
 
     getTutorials: function (req, res, next) {
-
+      new db.Tutorials()
+        .fetchAll({withRelated: 'tags'})
+        .then(function (tutorials) {
+          console.log(tutorials.toJSON());
+          return res.render('tutorials.html', {
+            tutorials: tutorials.toJSON()
+          });
+        })
+        .catch(function (error) {
+          return res.status(500);
+        })
+      ;
     },
 
     getTutorial: function (req, res, next) {

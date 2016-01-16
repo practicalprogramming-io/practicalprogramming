@@ -1,9 +1,65 @@
+body {
+  background: url("/images/backgrounds/paper.jpg") repeat 0 0 #FFFFFF;
+  color: #454545;
+}
+.img-js {
+  width: 65px;
+  height: 65px;
+}
+.img-mongo {
+  width: 160px;
+  height: 43.4531px;
+}
+.img-node {
+  width: 160px;
+  height: 43.1875px;
+}
+.img-pg {
+  width: 65px;
+  height: 65px;
+}
+.img-py {
+  width: 160px;
+  height: 47.4063px;
+}
+.navbar {
+  color: #000000;
+  background-color: transparent;
+  margin-bottom: 0px;
+}
+.navbar-inverse {
+  border-color: transparent;
+}
+.navbar-inverse .navbar-brand {
+  color: #000000;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-brand:hover {
+  color: #247BA0;
+}
+.navbar-inverse .navbar-nav li a {
+  color: #000000;
+}
+.navbar-inverse .navbar-nav li a:hover {
+  color: #247BA0;
+}
 .row {
   margin-right: 0;
   margin-left: 0;
 }
+.row.logos {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.jumbotron {
+  background-color: #454545;
+  color: #FFFFFF;
+}
 .jumbotron .container h2 {
   display: inline-flex;
+}
+.jumbotron .magic {
+  color: #F25F5C;
 }
 #create-tutorial {
   height: 100%;
