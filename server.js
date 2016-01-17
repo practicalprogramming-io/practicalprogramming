@@ -185,12 +185,8 @@ server.get('/users/:user/',
   isAuthenticated,
   isAdmin,
   function (req, res, next) {
-    return res.render('users.html', {
-      is_authenticated: req.userIsAuthenticated,
-      username: req.user.attributes.username,
-      is_admin: req.isAdmin
-    })
-  })
+    return next();
+  }, routes.user)
 ;
 
 server.get('/admin/:page/',
@@ -198,12 +194,8 @@ server.get('/admin/:page/',
   requireAdmin,
   isAuthenticated,
   function (req, res, next) {
-    var page = req.params.page;
-    return res.render('admin/' + page + '.html', {
-      is_authenticated: req.userIsAuthenticated,
-      username: req.user.attributes.username
-    })
-  })
+    return next();
+  }, routes.admin)
 ;
 
 module.exports = function (callback) {

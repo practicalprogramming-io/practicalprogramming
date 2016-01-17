@@ -61,6 +61,26 @@ body {
 .jumbotron .magic {
   color: #F25F5C;
 }
+.tutorial-item {
+  font-size: 17px;
+}
+.label.label-tag {
+  background-color: #70C1B3;
+}
+.label.label-tag a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+li.tutorial-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+li.tutorial-item a.tutorial-link {
+  text-decoration: none;
+  font-weight: bold;
+}
 #create-tutorial {
   height: 100%;
 }

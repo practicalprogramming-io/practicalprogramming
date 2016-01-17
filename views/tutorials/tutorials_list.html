@@ -1,7 +1,13 @@
-<li>
-  <a href="/tutorials/{{ tutorial.url_path }}">
+<li class="tutorial-item">
+  <a class="tutorial-link" href="/tutorials/{{ tutorial.url_path }}">
     {{ tutorial.title }}
   </a>
   <br/>
   {{ tutorial.description }}
+  <br/>
+  {% for tag in tutorial.tags %}
+    <span class="label label-tag">
+      <a href="/tutorials/?tags={{ tag.tag_name }}">{{ tag.tag_name }}</a>
+    </span>&nbsp;
+  {% endfor %}
 </li>

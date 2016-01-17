@@ -9,6 +9,7 @@ var bcrypt = require('bcrypt-nodejs')
   , Tutorials
   , TutorialsRecent
   , Tags
+  , InsertTutorialsTags
   , TutorialsTags
   , Jobs
   , JobsTags
@@ -57,21 +58,28 @@ Tutorials = bookshelf.Model.extend({
     return this.belongsTo(Users, 'users_id');
   },
   tags: function () {
-    return this.hasMany(TutorialsTags, 'tutorials_tags_id');
+    return this.hasMany(Tags, 'tags_id').through(TutorialsTags, 'tutorials_tags_id');
+//    return this.hasMany(TutorialsTags, 'tutorials_tags_id');
   }
 });
 
 TutorialsRecent = knex('tutorials')
   .join('users', 'tutorials.users_id', '=', 'users.users_id')
+  .join('tutorials_tags', 'tutorials.tutorials_id', '=', 'tutorials_tags.tutorials_id')
+  .join('tags', 'tutorials_tags.tags_id', '=', 'tags.tags_id')
   .select('tutorials.url_path', 'tutorials.title', 'tutorials.created_datetime',
-    'tutorials.description', 'users.username')
+    'tutorials.description', 'users.username', 'tags.tags_id', 'tags.tag_name',
+    'tutorials.tutorials_id')
   .limit(20)
   .orderBy('tutorials.created_datetime', 'desc')
 ;
 
 Tags = bookshelf.Model.extend({
   tableName: 'tags',
-  idAttribute: 'tags_id'
+  idAttribute: 'tags_id',
+  tutorialstags: function () {
+    return this.belongsTo(TutorialsTags, 'tutorials_tags_id');
+  }
 });
 
 TutorialsTags = bookshelf.Model.extend({
@@ -81,9 +89,22 @@ TutorialsTags = bookshelf.Model.extend({
     return this.belongsTo(Tutorials, 'tutorials_id');
   },
   tags: function () {
-    return this.hasOne(Tags, 'tags_id');
+    return this.hasMany(Tags, 'tags_id');
   }
 });
+
+InsertTutorialsTags = function (data, callback) {
+  console.log(data);
+  return knex('tutorials_tags').insert(data)
+    .then(function () {
+      callback(null);
+    })
+    .catch(function (error) {
+      console.log(error);
+      callback(error);
+    })
+  ;
+};
 
 Jobs = bookshelf.Model.extend({
   tableName: 'jobs',
@@ -115,6 +136,7 @@ module.exports = {
   Tutorials: Tutorials,
   TutorialsRecent: TutorialsRecent,
   Tags: Tags,
+  InsertTutorialsTags: InsertTutorialsTags,
   TutorialsTags: TutorialsTags,
   Jobs: Jobs,
   JobsTags: JobsTags,

@@ -17,6 +17,15 @@
                     <input type="text" name="path" id="path" class="form-control" required="true" placeholder="URL Path">
                 </div>
                 <div class="form-group">
+                  <label for="tags">Tags</label>
+                  <br/>
+                  {% for tag in data %}
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="tags" name="tags" value="{{ tag.tags_id }}">{{ tag.tag_name }}
+                  </label>
+                  {% endfor %}
+                </div>
+                <div class="form-group">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" class="form-control" required="true" rows="3"></textarea>
                 </div>
