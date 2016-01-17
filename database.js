@@ -58,7 +58,7 @@ Tutorials = bookshelf.Model.extend({
     return this.belongsTo(Users, 'users_id');
   },
   tags: function () {
-    return this.hasMany(TutorialsTags, 'tutorials_tags_id');
+    return this.belongsToMany(Tags, 'tutorials_id').through(TutorialsTags, ['tutorials_id'], ['tags_id']);
   }
 });
 

@@ -47,7 +47,6 @@ module.exports = function (db) {
       new db.Tutorials()
         .fetchAll({withRelated: 'tags'})
         .then(function (tutorials) {
-          //console.log(tutorials.toJSON()[0]);
           return res.render('tutorials.html', {
             tutorials: tutorials.toJSON()
           });
