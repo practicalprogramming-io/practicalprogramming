@@ -58,8 +58,23 @@ Tutorials = bookshelf.Model.extend({
     return this.belongsTo(Users, 'users_id');
   },
   tags: function () {
-    return this.hasMany(Tags, 'tags_id').through(TutorialsTags, 'tutorials_tags_id');
-//    return this.hasMany(TutorialsTags, 'tutorials_tags_id');
+    return this.hasMany(TutorialsTags, 'tutorials_tags_id');
+  }
+});
+
+Tags = bookshelf.Model.extend({
+  tableName: 'tags',
+  idAttribute: 'tags_id',
+});
+
+TutorialsTags = bookshelf.Model.extend({
+  tableName: 'tutorials_tags',
+  idAttribute: 'tutorials_tags_id',
+  tutorials: function () {
+    return this.belongsTo(Tutorials, 'tutorials_id');
+  },
+  tags: function () {
+    return this.belongsTo(Tags, 'tags_id');
   }
 });
 
@@ -73,25 +88,6 @@ TutorialsRecent = knex('tutorials')
   .limit(20)
   .orderBy('tutorials.created_datetime', 'desc')
 ;
-
-Tags = bookshelf.Model.extend({
-  tableName: 'tags',
-  idAttribute: 'tags_id',
-  tutorialstags: function () {
-    return this.belongsTo(TutorialsTags, 'tutorials_tags_id');
-  }
-});
-
-TutorialsTags = bookshelf.Model.extend({
-  tableName: 'tutorials_tags',
-  idAttribute: 'tutorials_tags_id',
-  tutorial: function () {
-    return this.belongsTo(Tutorials, 'tutorials_id');
-  },
-  tags: function () {
-    return this.hasMany(Tags, 'tags_id');
-  }
-});
 
 InsertTutorialsTags = function (data, callback) {
   console.log(data);

@@ -136,6 +136,12 @@ server.post('/tutorials/',
 ;
 
 // Jobs Routes =================================================================
+server.get('/jobs/',
+  function (req, res, next) {
+    return res.render('jobs.html');
+  })
+;
+
 server.get('/jobs/:job/',
   function (req, res, next) {
 

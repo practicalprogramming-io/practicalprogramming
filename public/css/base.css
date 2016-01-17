@@ -1,5 +1,5 @@
 body {
-  background: url("/images/backgrounds/paper.jpg") repeat 0 0 #FFFFFF;
+  background: url("/images/backgrounds/concrete.png") repeat 0 0 #FFFFFF;
   color: #454545;
 }
 .img-js {
@@ -58,8 +58,12 @@ body {
 .jumbotron .container h2 {
   display: inline-flex;
 }
-.jumbotron .magic {
+.jumbotron .static {
   color: #F25F5C;
+}
+.jumbotron .magic {
+  background-color: #F25F5C;
+  color: #FFFFFF;
 }
 .tutorial-item {
   font-size: 17px;
@@ -92,4 +96,10 @@ footer {
   width: 100%;
   bottom: 0;
   left: 0;
+}
+.jobs.jumbotron .title {
+  color: #F25F5C;
+}
+.jobs.jumbotron .section-title {
+  color: #FFE066;
 }

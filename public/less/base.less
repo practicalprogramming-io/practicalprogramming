@@ -7,7 +7,7 @@
 @black: #000000;
 
 body {
-  background: url("/images/backgrounds/paper.jpg") repeat 0 0 @white;
+  background: url("/images/backgrounds/concrete.png") repeat 0 0 @white;
   color: @pastel-gray;
 }
 
@@ -84,8 +84,13 @@ body {
       display: inline-flex;
   }
 
-  .magic {
+  .static {
     color: @pastel-red;
+  }
+
+  .magic {
+    background-color: @pastel-red;
+    color: @white;
   }
 
 }
@@ -130,4 +135,13 @@ footer {
     width: 100%;
     bottom: 0;
     left: 0;
+}
+
+.jobs.jumbotron {
+  .title {
+    color: @pastel-red;
+  }
+  .section-title {
+    color: @pastel-yellow;
+  }
 }
