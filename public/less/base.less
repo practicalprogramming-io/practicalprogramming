@@ -76,23 +76,28 @@ body {
 }
 
 .jumbotron {
-
   background-color: @pastel-gray;
   color: @white;
-
   .container h2 {
       display: inline-flex;
   }
-
   .static {
     color: @pastel-red;
   }
-
   .magic {
     background-color: @pastel-red;
     color: @white;
   }
-
+  .title {
+    color: @pastel-red;
+  }
+  .section-title {
+    color: @pastel-yellow;
+  }
+  .btn-filter {
+    background-color: @pastel-blue;
+    font-size: 16px;
+  }
 }
 
 .tutorial-item {
@@ -135,13 +140,4 @@ footer {
     width: 100%;
     bottom: 0;
     left: 0;
-}
-
-.jobs.jumbotron {
-  .title {
-    color: @pastel-red;
-  }
-  .section-title {
-    color: @pastel-yellow;
-  }
 }

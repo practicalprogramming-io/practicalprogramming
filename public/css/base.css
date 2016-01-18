@@ -65,6 +65,16 @@ body {
   background-color: #F25F5C;
   color: #FFFFFF;
 }
+.jumbotron .title {
+  color: #F25F5C;
+}
+.jumbotron .section-title {
+  color: #FFE066;
+}
+.jumbotron .btn-filter {
+  background-color: #247BA0;
+  font-size: 16px;
+}
 .tutorial-item {
   font-size: 17px;
 }
@@ -96,10 +106,4 @@ footer {
   width: 100%;
   bottom: 0;
   left: 0;
-}
-.jobs.jumbotron .title {
-  color: #F25F5C;
-}
-.jobs.jumbotron .section-title {
-  color: #FFE066;
 }

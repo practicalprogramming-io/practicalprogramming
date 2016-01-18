@@ -44,12 +44,32 @@ module.exports = function (db) {
     },
 
     getTutorials: function (req, res, next) {
+      var tag = req.query.tags ? req.query.tags : null;
       new db.Tutorials()
         .fetchAll({withRelated: 'tags'})
         .then(function (tutorials) {
-          return res.render('tutorials.html', {
-            tutorials: tutorials.toJSON()
-          });
+          tutorials = tutorials.toJSON();
+          new db.Tags().fetchAll()
+            .then(function (tags) {
+              if (tag) {
+                tutorials = tutorials.filter(function (x) {
+                  for (var i = 0; i < x.tags.length; i++) {
+                    if (x.tags[i].tag_name === tag) {
+                      return x;
+                    }
+                  }
+                });
+              }
+              return res.render('tutorials.html', {
+                tutorials: tutorials,
+                tags: tags.toJSON(),
+                activeTag: tag
+              });
+            })
+            .catch(function (error) {
+              return res.status(500);
+            })
+          ;
         })
         .catch(function (error) {
           return res.status(500);

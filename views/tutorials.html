@@ -1,7 +1,32 @@
 {% extends "index.html" %}
 
 {% block content %}
-
+<div class="jumbotron">
+    <div class="container">
+        <h2 class="title">
+          practicalprogramming.io tutorials
+        </h2>
+        <br/>
+        <br/>
+        <div class="btn-group">
+          <button type="button" class="btn btn-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if activeTag %}
+              {{ activeTag }}
+            {% else %}
+              Filter Content
+            {% endif %}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            {% for tag in tags %}
+              <li>
+                <a href="/tutorials/?tags={{ tag.tag_name }}">{{ tag.tag_name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+</div>
 <div class="container">
   <div class="row">
       <ul class="list-unstyled">
