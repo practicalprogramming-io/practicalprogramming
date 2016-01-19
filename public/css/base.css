@@ -102,8 +102,11 @@ li.tutorial-item a.tutorial-link {
   height: 490px;
 }
 footer {
+  position: absolute;
   height: 30px;
   width: 100%;
   bottom: 0;
   left: 0;
+  background-color: #454545;
+  color: #FFFFFF;
 }

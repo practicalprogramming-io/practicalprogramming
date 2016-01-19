@@ -151,6 +151,9 @@ module.exports = function (db) {
           })
         ;
       }
+      else if (page === 'edit_tutorial') {
+        
+      }
       else {
         _return();
       }
