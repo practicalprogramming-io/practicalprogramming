@@ -1,7 +1,7 @@
 (function () {
 
   function magicHeader () {
-    var titleMagic = $('.jumbotron .container h2 .magic')
+    var titleMagic = $('.jumbotron .container h1 .magic')
       , headers = ['developers', 'teachers', 'students', 'dreamers', 'thinkers',
         'professionals', 'experts', 'job seekers', 'tinkerers', 'novices',
         'engineers', 'artists', 'employers']

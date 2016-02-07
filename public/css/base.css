@@ -48,19 +48,17 @@ body {
   margin-left: 0;
 }
 .row.logos {
-  margin-top: 15px;
+  padding-top: 30px;
   margin-bottom: 30px;
+  margin-left: -15px;
 }
 .jumbotron {
   background-color: #454545;
   color: #FFFFFF;
 }
-.jumbotron .container h2 {
+.jumbotron .container h1 {
+  font-size: 54px;
   display: inline-flex;
-}
-.jumbotron .container .row {
-  padding-top: 30px;
-  margin-left: -15px;
 }
 .jumbotron .static {
   color: #F25F5C;
@@ -84,6 +82,8 @@ body {
 }
 .label.label-tag {
   background-color: #70C1B3;
+  border-bottom: thin solid #38746A;
+  border-bottom-width: 2px;
 }
 .label.label-tag a {
   color: #FFFFFF;
