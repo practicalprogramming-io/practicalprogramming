@@ -1,5 +1,5 @@
 body {
-  background: url("/images/backgrounds/concrete.png") repeat 0 0 #FFFFFF;
+  background-color: #FFFFFF;
   color: #454545;
 }
 .img-js {
@@ -32,22 +32,22 @@ body {
   height: 40px;
 }
 .navbar {
-  color: #000000;
-  background-color: transparent;
+  color: #FFFFFF;
+  background-color: #202532;
   margin-bottom: 0px;
 }
 .navbar-inverse {
   border-color: transparent;
 }
 .navbar-inverse .navbar-brand {
-  color: #000000;
+  color: #E2EEFF;
   font-weight: bold;
 }
 .navbar-inverse .navbar-brand:hover {
   color: #247BA0;
 }
 .navbar-inverse .navbar-nav li a {
-  color: #000000;
+  color: #FFFFFF;
 }
 .navbar-inverse .navbar-nav li a:hover {
   color: #247BA0;
@@ -65,8 +65,9 @@ body {
   margin-left: -15px;
 }
 .jumbotron {
-  background-color: #454545;
+  background-color: #296AD4;
   color: #FFFFFF;
+  margin-bottom: 50px;
 }
 .jumbotron .container h1 {
   font-size: 54px;
@@ -76,14 +77,14 @@ body {
   font-size: 27px;
 }
 .jumbotron .static {
-  color: #F25F5C;
+  color: #A4B3CD;
 }
 .jumbotron .magic {
-  background-color: #F25F5C;
+  background-color: #A4B3CD;
   color: #FFFFFF;
 }
 .jumbotron .title {
-  color: #F25F5C;
+  color: #A4B3CD;
 }
 .jumbotron .section-title {
   color: #FFE066;
@@ -91,6 +92,14 @@ body {
 .jumbotron .btn-filter {
   background-color: #247BA0;
   font-size: 16px;
+}
+.logos-splash {
+  border-bottom: 1px solid #ECEFF7;
+  padding-bottom: 50px;
+}
+.home-recent-tutorials {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 .tutorial-item {
   font-size: 17px;
@@ -120,17 +129,9 @@ li.tutorial-item a.tutorial-link {
 #create-tutorial textarea#content.form-control {
   height: 490px;
 }
+footer {
+  background-color: #202532;
+}
 footer .container ul.nav.navbar-nav.navbar-right li a {
   padding: 5px;
 }
-/*
-footer {
-    position: absolute;
-    height: 30px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    background-color: @pastel-gray;
-    color: @white;
-}
-*/

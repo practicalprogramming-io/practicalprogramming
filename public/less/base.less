@@ -7,8 +7,20 @@
 @white: #FFFFFF;
 @black: #000000;
 
+@blue-base: #296AD4;
+@dark-blue: #2155AA;
+@blue-gray: #5B6E8C;
+@dark-blue-gray: #2B3442;
+@darker-blue-gray: #202532;
+@gray: #F7F7F7;
+@text-gray: #A4B3CD;
+@text-light-gray: #E2EEFF;
+@pink-red: #F23B45;
+
+
 body {
-  background: url("/images/backgrounds/concrete.png") repeat 0 0 @white;
+  background-color: @white;
+//  background: url("/images/backgrounds/concrete.png") repeat 0 0 @white;
   color: @pastel-gray;
 }
 
@@ -49,8 +61,8 @@ body {
 }
 
 .navbar {
-  color: @black;
-  background-color: transparent;
+  color: @white;
+  background-color: @darker-blue-gray;
   margin-bottom: 0px;
 }
 
@@ -59,7 +71,7 @@ body {
   border-color: transparent;
 
   .navbar-brand {
-    color: @black;
+    color: @text-light-gray;
     font-weight: bold;
   }
 
@@ -68,7 +80,7 @@ body {
   }
 
   .navbar-nav li a {
-    color: @black;
+    color: @white;
   }
 
   .navbar-nav li a:hover {
@@ -93,8 +105,10 @@ body {
 }
 
 .jumbotron {
-  background-color: @pastel-gray;
+  background-color: @blue-base;
   color: @white;
+  margin-bottom: 50px;
+
   .container {
     h1 {
       font-size: 54px;
@@ -105,14 +119,14 @@ body {
     }
   }
   .static {
-    color: @pastel-red;
+    color: @text-gray;
   }
   .magic {
-    background-color: @pastel-red;
+    background-color: @text-gray;
     color: @white;
   }
   .title {
-    color: @pastel-red;
+    color: @text-gray;
   }
   .section-title {
     color: @pastel-yellow;
@@ -121,6 +135,16 @@ body {
     background-color: @pastel-blue;
     font-size: 16px;
   }
+}
+
+.logos-splash {
+  border-bottom: 1px solid #ECEFF7;
+  padding-bottom: 50px;
+}
+
+.home-recent-tutorials {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .tutorial-item {
@@ -161,6 +185,7 @@ li.tutorial-item {
 }
 
 footer {
+  background-color: @darker-blue-gray;
   .container {
     ul.nav.navbar-nav.navbar-right {
       li {
@@ -171,15 +196,3 @@ footer {
     }
   }
 }
-
-/*
-footer {
-    position: absolute;
-    height: 30px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    background-color: @pastel-gray;
-    color: @white;
-}
-*/
