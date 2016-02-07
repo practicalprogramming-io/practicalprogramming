@@ -79,7 +79,6 @@ module.exports = function (db) {
 
     getTutorial: function (req, res, next) {
       var path = req.params.tutorial;
-
       new db.Tutorials({url_path: path})
         .fetch({withRelated: 'user'})
         .then(function (tutorial) {
@@ -94,7 +93,6 @@ module.exports = function (db) {
           return res.status(500);
         })
       ;
-
     },
 
     createTutorials: function (req, res, next) {
@@ -125,25 +123,71 @@ module.exports = function (db) {
           return res.status(500);
         })
       ;
+    },
 
+    updateTutorial: function (req, res, next) {
+      var tags = req.body.tags
+        , path = req.params.tutorial
+        , data = {
+        users_id: req.user.id,
+        url_path: req.body.path,
+        title: req.body.title,
+        description: req.body.description,
+        content_markdown: req.body.content,
+        content_html: marked(req.body.content)
+      };
+
+      console.log(path, data);
+
+      new db.Tutorials({url_path: path})
+        .fetch({withRelated: 'user'})
+        .then(function (tutorial) {
+          tutorial.save(data, {method: 'update'})
+            .then(function (_update) {
+              db.DeleteTutorialsTags(_update.id, function (error) {
+                if (error) {
+                  return res.status(500);
+                }
+                var _tags = [], i;
+                for (i = 0; i < tags.length; i++) {
+                  _tags.push({tutorials_id: _update.id, tags_id: tags[i]});
+                }
+                db.InsertTutorialsTags(_tags, function (error) {
+                  if (error) {
+                    return res.status(500);
+                  }
+                  return res.redirect('/tutorials/' + tutorial.get('url_path'));
+                })
+              });
+            })
+            .catch(function (error) {
+              return res.status(500);
+            })
+          ;
+        })
+        .catch(function (error) {
+          return res.status(500);
+        })
+      ;
     },
 
     admin: function (req, res, next) {
       var page = req.params.page;
 
       function _return (data) {
-        return res.render('admin/' + page + '.html', {
+        return res.render('admin/' + data.page + '.html', {
           is_authenticated: req.userIsAuthenticated,
           username: req.user.attributes.username,
           data: data ? data : null
         });
       };
 
-      if (page === 'create_tutorial') {
+      if (page === 'create') {
         new db.Tags()
           .fetchAll()
           .then(function (tags) {
             data = tags.toJSON();
+            data.page = page;
             _return(data);
           })
           .catch(function (error) {
@@ -151,11 +195,37 @@ module.exports = function (db) {
           })
         ;
       }
-      else if (page === 'edit_tutorial') {
-        
-      }
       else {
-        _return();
+        new db.Tutorials({url_path: page})
+          .fetch({withRelated: 'tags'})
+          .then(function (tutorial) {
+            tutorial = tutorial.toJSON();
+            new db.Tags()
+              .fetchAll()
+              .then(function (tags) {
+                activeTags = tutorial.tags.map(function (x) {
+                  return x.tags_id;
+                });
+                data = tags.toJSON();
+                data = data.map(function (x) {
+                  if (activeTags.indexOf(x.tags_id) > -1) {
+                    x.active = true;
+                  }
+                  return x;
+                });
+                data.page = 'edit';
+                data.tutorial = tutorial;
+                _return(data);
+              })
+              .catch(function (error) {
+                console.log('no tags');
+              })
+            ;
+          })
+          .catch(function (error) {
+            return res.status(500);
+          })
+        ;
       }
     },
 

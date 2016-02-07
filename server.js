@@ -135,6 +135,14 @@ server.post('/tutorials/',
   }, routes.createTutorials)
 ;
 
+server.post('/tutorials/:tutorial/',
+  requireAuthorization,
+  requireAdmin,
+  function (req, res, next) {
+    return next();
+  }, routes.updateTutorial)
+;
+
 // Jobs Routes =================================================================
 server.get('/jobs/',
   function (req, res, next) {

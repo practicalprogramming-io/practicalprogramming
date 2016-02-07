@@ -7,31 +7,35 @@
             <h3>Create New Tutorial</h3>
         </div>
         <div class="row">
-            <form method="post" action="/tutorials/">
+            <form method="post" action="/tutorials/{{ data.tutorial.url_path }}/">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" id="title" class="form-control" required="true" placeholder="Title">
+                    <input type="text" name="title" id="title" class="form-control" required="true" value="{{ data.tutorial.title }}">
                 </div>
                 <div class="form-group">
                     <label for="path">URL Path</label>
-                    <input type="text" name="path" id="path" class="form-control" required="true" placeholder="URL Path">
+                    <input type="text" name="path" id="path" class="form-control" required="true" value="{{ data.tutorial.url_path }}">
                 </div>
                 <div class="form-group">
                   <label for="tags">Tags</label>
                   <br/>
                   {% for tag in data %}
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="tags" name="tags" value="{{ tag.tags_id }}">{{ tag.tag_name }}
+                      {% if tag.active %}
+                        <input type="checkbox" id="tags" name="tags" value="{{ tag.tags_id }}" checked>{{ tag.tag_name }}
+                      {% else %}
+                        <input type="checkbox" id="tags" name="tags" value="{{ tag.tags_id }}">{{ tag.tag_name }}
+                      {% endif %}
                   </label>
                   {% endfor %}
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" class="form-control" required="true" rows="3"></textarea>
+                    <textarea name="description" id="description" class="form-control" required="true" rows="3">{{ data.tutorial.description }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea name="content" id="content" required="true" class="form-control"></textarea>
+                    <textarea name="content" id="content" required="true" class="form-control">{{ data.tutorial.content_markdown }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
             </form>

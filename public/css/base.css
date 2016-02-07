@@ -58,6 +58,10 @@ body {
 .jumbotron .container h2 {
   display: inline-flex;
 }
+.jumbotron .container .row {
+  padding-top: 30px;
+  margin-left: -15px;
+}
 .jumbotron .static {
   color: #F25F5C;
 }
@@ -101,12 +105,14 @@ li.tutorial-item a.tutorial-link {
 #create-tutorial textarea#content.form-control {
   height: 490px;
 }
+/*
 footer {
-  position: absolute;
-  height: 30px;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  background-color: #454545;
-  color: #FFFFFF;
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: @pastel-gray;
+    color: @white;
 }
+*/

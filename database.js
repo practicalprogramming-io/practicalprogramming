@@ -90,17 +90,18 @@ TutorialsRecent = knex('tutorials')
 ;
 
 InsertTutorialsTags = function (data, callback) {
-  console.log(data);
   return knex('tutorials_tags').insert(data)
-    .then(function () {
-      callback(null);
-    })
-    .catch(function (error) {
-      console.log(error);
-      callback(error);
-    })
+    .then(function () { callback(null); })
+    .catch(function (error) { callback(error); })
   ;
 };
+
+DeleteTutorialsTags = function (data, callback) {
+  return knex('tutorials_tags').where('tutorials_id', data).del()
+    .then(function () { callback(null); })
+    .catch(function (error) { callback(error); })
+  ;
+}
 
 Jobs = bookshelf.Model.extend({
   tableName: 'jobs',
@@ -133,6 +134,7 @@ module.exports = {
   TutorialsRecent: TutorialsRecent,
   Tags: Tags,
   InsertTutorialsTags: InsertTutorialsTags,
+  DeleteTutorialsTags: DeleteTutorialsTags,
   TutorialsTags: TutorialsTags,
   Jobs: Jobs,
   JobsTags: JobsTags,
