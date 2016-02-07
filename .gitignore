@@ -1,4 +1,4 @@
 node_modules
 public/assets
 npm-debug.log
-*.DS_STORE
+*.DS_Store

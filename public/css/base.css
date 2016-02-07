@@ -22,6 +22,15 @@ body {
   width: 160px;
   height: 47.4063px;
 }
+.img-twitter {
+  width: 50px;
+  height: 50px;
+}
+.img-github {
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+}
 .navbar {
   color: #000000;
   background-color: transparent;
@@ -47,6 +56,9 @@ body {
   margin-right: 0;
   margin-left: 0;
 }
+.row.logos-text {
+  font-size: 18px;
+}
 .row.logos {
   padding-top: 30px;
   margin-bottom: 30px;
@@ -59,6 +71,9 @@ body {
 .jumbotron .container h1 {
   font-size: 54px;
   display: inline-flex;
+}
+.jumbotron .container p {
+  font-size: 27px;
 }
 .jumbotron .static {
   color: #F25F5C;
@@ -104,6 +119,9 @@ li.tutorial-item a.tutorial-link {
 }
 #create-tutorial textarea#content.form-control {
   height: 490px;
+}
+footer .container ul.nav.navbar-nav.navbar-right li a {
+  padding: 5px;
 }
 /*
 footer {
