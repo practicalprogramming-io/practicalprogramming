@@ -12,6 +12,7 @@
 @blue-gray: #5B6E8C;
 @dark-blue-gray: #2B3442;
 @darker-blue-gray: #202532;
+@blue-button: #5998FF;
 @gray: #F7F7F7;
 @text-gray: #A4B3CD;
 @text-light-gray: #E2EEFF;
@@ -50,14 +51,17 @@ body {
 }
 
 .img-twitter {
-  width: 50px;
-  height: 50px;
+  margin-right: 7px;
+  margin-top: 7px;
+  width: 30px;
+  height: 25px;
 }
 
 .img-github {
-  margin-top: 5px;
-  width: 40px;
-  height: 40px;
+  margin-left: 7px;
+  margin-top: 4px;
+  width: 30px;
+  height: 30px;
 }
 
 .navbar {
@@ -76,7 +80,7 @@ body {
   }
 
   .navbar-brand:hover {
-    color: @pastel-blue;
+    color: @pastel-red;
   }
 
   .navbar-nav li a {
@@ -84,7 +88,7 @@ body {
   }
 
   .navbar-nav li a:hover {
-    color: @pastel-blue;
+    color: @pastel-red;
   }
 
 }
@@ -119,14 +123,14 @@ body {
     }
   }
   .static {
-    color: @text-gray;
+    color: @black;
   }
   .magic {
-    background-color: @text-gray;
+    background-color: @black;
     color: @white;
   }
   .title {
-    color: @text-gray;
+    color: @black;
   }
   .section-title {
     color: @pastel-yellow;
@@ -152,13 +156,17 @@ body {
 }
 
 .label.label-tag {
-  background-color: @pastel-aqua;
+  background-color: @blue-button;
   border-bottom: thin solid @pastel-aqua-border;
   border-bottom-width: 2px;
 
   a {
     color: @white;
     text-decoration: none;
+  }
+
+  a:hover {
+    color: @text-light-gray;
   }
 
 }
@@ -170,8 +178,13 @@ li.tutorial-item {
   margin-bottom: 5px;
 
   a.tutorial-link {
+    color: @darker-blue-gray;
     text-decoration: none;
     font-weight: bold;
+  }
+
+  a:hover {
+    color: @pastel-red;
   }
 
 }
@@ -184,14 +197,51 @@ li.tutorial-item {
     }
 }
 
+.email-signup {
+  background-color: @blue-gray;
+  color: @text-light-gray;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  h4 {
+    font-size: 21px;
+  }
+  h5 {
+    font-size: 19px;
+  }
+  p {
+    font-size: 17px;
+  }
+  a {
+    color: @text-light-gray;
+    font-size: 15px;
+  }
+  a:hover {
+    color: @pastel-red;
+    text-decoration: none;
+  }
+  button.btn.btn-submit {
+    background-color: @blue-button;
+    color: @white;
+  }
+  input.form-control {
+    background-color: @gray;
+    color: @black;
+    border: 1px solid @gray;
+  }
+  .input-group {
+    padding-top: 20px;
+  }
+}
+
 footer {
   background-color: @darker-blue-gray;
   .container {
     ul.nav.navbar-nav.navbar-right {
-      li {
-        a {
-          padding: 5px;
-        }
+      li a {
+        padding: 5px;
+      }
+      li a:hover {
+        background-color: transparent;
       }
     }
   }

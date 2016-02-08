@@ -23,13 +23,16 @@ body {
   height: 47.4063px;
 }
 .img-twitter {
-  width: 50px;
-  height: 50px;
+  margin-right: 7px;
+  margin-top: 7px;
+  width: 30px;
+  height: 25px;
 }
 .img-github {
-  margin-top: 5px;
-  width: 40px;
-  height: 40px;
+  margin-left: 7px;
+  margin-top: 4px;
+  width: 30px;
+  height: 30px;
 }
 .navbar {
   color: #FFFFFF;
@@ -44,13 +47,13 @@ body {
   font-weight: bold;
 }
 .navbar-inverse .navbar-brand:hover {
-  color: #247BA0;
+  color: #F25F5C;
 }
 .navbar-inverse .navbar-nav li a {
   color: #FFFFFF;
 }
 .navbar-inverse .navbar-nav li a:hover {
-  color: #247BA0;
+  color: #F25F5C;
 }
 .row {
   margin-right: 0;
@@ -77,14 +80,14 @@ body {
   font-size: 27px;
 }
 .jumbotron .static {
-  color: #A4B3CD;
+  color: #000000;
 }
 .jumbotron .magic {
-  background-color: #A4B3CD;
+  background-color: #000000;
   color: #FFFFFF;
 }
 .jumbotron .title {
-  color: #A4B3CD;
+  color: #000000;
 }
 .jumbotron .section-title {
   color: #FFE066;
@@ -105,13 +108,16 @@ body {
   font-size: 17px;
 }
 .label.label-tag {
-  background-color: #70C1B3;
+  background-color: #5998FF;
   border-bottom: thin solid #38746A;
   border-bottom-width: 2px;
 }
 .label.label-tag a {
   color: #FFFFFF;
   text-decoration: none;
+}
+.label.label-tag a:hover {
+  color: #E2EEFF;
 }
 li.tutorial-item {
   padding-top: 10px;
@@ -120,8 +126,12 @@ li.tutorial-item {
   margin-bottom: 5px;
 }
 li.tutorial-item a.tutorial-link {
+  color: #202532;
   text-decoration: none;
   font-weight: bold;
+}
+li.tutorial-item a:hover {
+  color: #F25F5C;
 }
 #create-tutorial {
   height: 100%;
@@ -129,9 +139,47 @@ li.tutorial-item a.tutorial-link {
 #create-tutorial textarea#content.form-control {
   height: 490px;
 }
+.email-signup {
+  background-color: #5B6E8C;
+  color: #E2EEFF;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.email-signup h4 {
+  font-size: 21px;
+}
+.email-signup h5 {
+  font-size: 19px;
+}
+.email-signup p {
+  font-size: 17px;
+}
+.email-signup a {
+  color: #E2EEFF;
+  font-size: 15px;
+}
+.email-signup a:hover {
+  color: #F25F5C;
+  text-decoration: none;
+}
+.email-signup button.btn.btn-submit {
+  background-color: #5998FF;
+  color: #FFFFFF;
+}
+.email-signup input.form-control {
+  background-color: #F7F7F7;
+  color: #000000;
+  border: 1px solid #F7F7F7;
+}
+.email-signup .input-group {
+  padding-top: 20px;
+}
 footer {
   background-color: #202532;
 }
 footer .container ul.nav.navbar-nav.navbar-right li a {
   padding: 5px;
+}
+footer .container ul.nav.navbar-nav.navbar-right li a:hover {
+  background-color: transparent;
 }
