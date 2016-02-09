@@ -1,6 +1,16 @@
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   background-color: #FFFFFF;
   color: #454545;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -50px;
 }
 .img-js {
   width: 65px;
@@ -75,6 +85,7 @@ body {
 .jumbotron .container h1 {
   font-size: 54px;
   display: inline-flex;
+  color: #000000;
 }
 .jumbotron .container p {
   font-size: 27px;
@@ -91,10 +102,6 @@ body {
 }
 .jumbotron .section-title {
   color: #FFE066;
-}
-.jumbotron .btn-filter {
-  background-color: #247BA0;
-  font-size: 16px;
 }
 .logos-splash {
   border-bottom: 1px solid #ECEFF7;
@@ -118,6 +125,11 @@ body {
 }
 .label.label-tag a:hover {
   color: #E2EEFF;
+}
+.tutorials .btn-filter {
+  background-color: #202532;
+  color: #E2EEFF;
+  font-size: 16px;
 }
 li.tutorial-item {
   padding-top: 10px;
@@ -143,7 +155,7 @@ li.tutorial-item a:hover {
   background-color: #5B6E8C;
   color: #E2EEFF;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 80px;
 }
 .email-signup h4 {
   font-size: 21px;
@@ -175,7 +187,11 @@ li.tutorial-item a:hover {
   padding-top: 20px;
 }
 footer {
+  height: 50px;
   background-color: #202532;
+}
+footer .container .row .col-md-6 {
+  padding-left: 0;
 }
 footer .container ul.nav.navbar-nav.navbar-right li a {
   padding: 5px;

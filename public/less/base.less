@@ -19,10 +19,22 @@
 @pink-red: #F23B45;
 
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background-color: @white;
 //  background: url("/images/backgrounds/concrete.png") repeat 0 0 @white;
   color: @pastel-gray;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -50px;
 }
 
 .img-js {
@@ -117,6 +129,7 @@ body {
     h1 {
       font-size: 54px;
       display: inline-flex;
+      color: @black;
     }
     p {
       font-size: 27px;
@@ -134,10 +147,6 @@ body {
   }
   .section-title {
     color: @pastel-yellow;
-  }
-  .btn-filter {
-    background-color: @pastel-blue;
-    font-size: 16px;
   }
 }
 
@@ -167,6 +176,16 @@ body {
 
   a:hover {
     color: @text-light-gray;
+  }
+
+}
+
+.tutorials {
+
+  .btn-filter {
+    background-color: @darker-blue-gray;
+    color: @text-light-gray;
+    font-size: 16px;
   }
 
 }
@@ -201,7 +220,7 @@ li.tutorial-item {
   background-color: @blue-gray;
   color: @text-light-gray;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 80px;
   h4 {
     font-size: 21px;
   }
@@ -234,8 +253,14 @@ li.tutorial-item {
 }
 
 footer {
+  height: 50px;
   background-color: @darker-blue-gray;
   .container {
+    .row {
+      .col-md-6 {
+        padding-left: 0;
+      }
+    }
     ul.nav.navbar-nav.navbar-right {
       li a {
         padding: 5px;

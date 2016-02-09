@@ -212,6 +212,24 @@ server.get('/admin/:page/',
   }, routes.admin)
 ;
 
+server.get('/resources/',
+  function (req, res, next) {
+    return res.render('resources.html');
+  })
+;
+
+server.get('/authors/',
+  function (req, res, next) {
+    return res.render('authors.html');
+  })
+;
+
+server.get('/philosophy/',
+  function (req, res, next) {
+    return res.render('philosophy.html');
+  })
+;
+
 module.exports = function (callback) {
   callback(server);
 };
