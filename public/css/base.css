@@ -199,3 +199,6 @@ footer .container ul.nav.navbar-nav.navbar-right li a {
 footer .container ul.nav.navbar-nav.navbar-right li a:hover {
   background-color: transparent;
 }
+.authors .col-md-6 {
+  text-align: center;
+}
