@@ -162,6 +162,12 @@ server.post('/jobs/:job/',
   })
 ;
 
+// Mailing List Routes =========================================================
+server.post('/mailing/', 
+  function (req, res, next) {
+    return next();
+}, routes.addToMailingList)
+
 // Public Routes ===============================================================
 server.use('/assets', express.static(__dirname + '/public/assets/'));
 server.use('/js', express.static(__dirname + '/public/js/'));

@@ -14,30 +14,32 @@
           </p>
       </div>
   </div>
-  <div class="container">
-    <div class="btn-group">
-      <button type="button" class="btn btn-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {% if activeTag %}
-          {{ activeTag }}
-        {% else %}
-          Content Categories
-        {% endif %}
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        {% for tag in tags %}
-          <li>
-            <a href="/tutorials/?tags={{ tag.tag_name }}">{{ tag.tag_name }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="row">
-        <ul class="list-unstyled">
-            {% for tutorial in tutorials %}
-                {% include "tutorials/tutorials_list.html" %}
-            {% endfor %}
+  <div class="tutorials-list">
+    <div class="container">
+      <div class="btn-group">
+        <button type="button" class="btn btn-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {% if activeTag %}
+            {{ activeTag }}
+          {% else %}
+            Content Categories
+          {% endif %}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          {% for tag in tags %}
+            <li>
+              <a href="/tutorials/?tags={{ tag.tag_name }}">{{ tag.tag_name }}</a>
+            </li>
+          {% endfor %}
         </ul>
+      </div>
+      <div class="row">
+          <ul class="list-unstyled">
+              {% for tutorial in tutorials %}
+                  {% include "tutorials/tutorials_list.html" %}
+              {% endfor %}
+          </ul>
+      </div>
     </div>
   </div>
 </div>

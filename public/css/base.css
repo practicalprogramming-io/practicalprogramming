@@ -131,6 +131,9 @@ body {
   color: #E2EEFF;
   font-size: 16px;
 }
+.tutorials .tutorials-list {
+  padding-bottom: 80px;
+}
 li.tutorial-item {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -201,4 +204,7 @@ footer .container ul.nav.navbar-nav.navbar-right li a:hover {
 }
 .authors .col-md-6 {
   text-align: center;
+}
+.resources .resources-list {
+  padding-bottom: 80px;
 }

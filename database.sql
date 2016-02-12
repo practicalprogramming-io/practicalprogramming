@@ -56,5 +56,10 @@ CREATE TABLE jobs_tags (
     tags_id INTEGER REFERENCES tags(tags_id) ON DELETE CASCADE
 );
 
+CREATE TABLE mailing_list (
+    mailing_list_id SERIAL PRIMARY KEY,
+    email VARCHAR
+);
+
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO practicalprogramming_user;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO practicalprogramming_user;

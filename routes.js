@@ -255,6 +255,10 @@ module.exports = function (db) {
       }
     },
 
+    addToMailingList: function (req, res, next) {
+
+    },
+
   }
 
 };

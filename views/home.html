@@ -91,11 +91,13 @@
               </p>
             </div>
             <div class="col-md-5">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Email">
-                <span class="input-group-btn">
-                  <button class="btn btn-submit" type="button">Subscribe</button>
-                </span>
+              <form method="post" action="/mailing/">
+                <div class="input-group">
+                  <input type="text" name="email" class="form-control" placeholder="Email">
+                  <span class="input-group-btn">
+                    <button class="btn btn-submit" name="submit" type="button">Subscribe</button>
+                  </span>
+                </div>
               </div>
             </div>
         </div>
