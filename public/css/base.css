@@ -193,14 +193,38 @@ footer {
   height: 50px;
   background-color: #202532;
 }
-footer .container .row .col-md-6 {
+footer .container .row {
+  height: 44px;
+}
+footer .container .row .col-md-8,
+footer .container .row .col-md-4 {
   padding-left: 0;
+}
+footer .container .row .col-md-8.col-sm-8.col-xs-8,
+footer .container .row .col-md-4.col-sm-4.col-xs-4 {
+  height: 44px;
+}
+footer .container .row h4 {
+  font-size: 16px;
 }
 footer .container ul.nav.navbar-nav.navbar-right li a {
   padding: 5px;
 }
 footer .container ul.nav.navbar-nav.navbar-right li a:hover {
   background-color: transparent;
+}
+footer .container .navbar-nav {
+  margin: 0;
+}
+footer .navbar-nav > li,
+footer .navbar-nav {
+  float: left !important;
+}
+footer .navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+footer .navbar-right {
+  float: right!important;
 }
 .authors .col-md-6 {
   text-align: center;
