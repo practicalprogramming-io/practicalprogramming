@@ -137,8 +137,6 @@ module.exports = function (db) {
         content_html: marked(req.body.content)
       };
 
-      console.log(path, data);
-
       new db.Tutorials({url_path: path})
         .fetch({withRelated: 'user'})
         .then(function (tutorial) {

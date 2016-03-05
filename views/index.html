@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="azFieldGuide">
+<html lang="en">
     <head>
         <base href="/">
         <meta charset="utf-8">
@@ -60,27 +60,87 @@
           {% endblock %}
         </div>
 
+        <div class="sticky-navigation">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h5>Learn</h5>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="/tutorials/?tags=python">Python</a>
+                  </li>
+                  <li>
+                    <a href="/tutorials/?tags=javascript">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="/tutorials/?tags=nodejs">Node.js</a>
+                  </li>
+                  <li>
+                    <a href="/tutorials/?tags=postgresql">PostgreSQL</a>
+                  </li>
+                  <li>
+                    <a href="/tutorials/?tags=mongodb">MongoDB</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h5>Connect</h5>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="https://github.com/practicalprogramming-io">GitHub</a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/doggyhuck">Twitter</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h5>About</h5>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="/authors/">Authors</a>
+                  </li>
+                  <li>
+                    <a href="/philosophy/">Philosophy</a>
+                  </li>
+                  <li>
+                    <a href="/contact/">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h5>Other</h5>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="/tutorials/">Tutorials</a>
+                  </li>
+                  <li>
+                    <a href="/resources/">Resources</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <footer>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
-                        <h4>practicalprogramming.io -- 2015</h4>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4">
-                      <ul class="nav navbar-nav navbar-right">
-                          <li>
-                              <a href="https://twitter.com/doggyhuck" target="_blank">
-                                <img src="/images/logos/Twitter_logo_white.png" class="img-twitter">
-                              </a>
-                          </li>
-                          <li>
-                              <a href="https://github.com/practicalprogramming-io" target="_blank">
-                                <img src="/images/logos/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png" class="img-github">
-                              </a>
-                          </li>
-                      </ul>
-                    </div>
-                </div>
+              <div class="row">
+                  <div class="col-md-8 col-sm-8 col-xs-8"></div>
+                  <div class="col-md-4 col-sm-4 col-xs-4">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="https://twitter.com/doggyhuck" target="_blank">
+                              <img src="/images/logos/Twitter_logo_white.png" class="img-twitter">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/practicalprogramming-io" target="_blank">
+                              <img src="/images/logos/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png" class="img-github">
+                            </a>
+                        </li>
+                    </ul>
+                  </div>
+              </div>
             </div>
         </footer>
         <script src="/assets/jquery/dist/jquery.min.js"></script>

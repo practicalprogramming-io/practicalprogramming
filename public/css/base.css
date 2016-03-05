@@ -92,6 +92,32 @@ body {
 }
 .jumbotron .static {
   color: #000000;
+  word-wrap: break-word;
+}
+@media (max-width: 400px) {
+  .jumbotron .static {
+    width: 390px;
+  }
+}
+@media (min-width: 401px) and (max-width: 768px) {
+  .jumbotron .static {
+    width: 600px;
+  }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+  .jumbotron .static {
+    width: 970px;
+  }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+  .jumbotron .static {
+    width: 1170px;
+  }
+}
+@media (min-width: 1201px) {
+  .jumbotron .static {
+    width: 1170px;
+  }
 }
 .jumbotron .magic {
   background-color: #000000;
@@ -150,6 +176,7 @@ li.tutorial-item a:hover {
 }
 #create-tutorial {
   height: 100%;
+  padding-bottom: 80px;
 }
 #create-tutorial textarea#content.form-control {
   height: 490px;
@@ -231,4 +258,27 @@ footer .navbar-right {
 }
 .resources .resources-list {
   padding-bottom: 80px;
+}
+.sticky-navigation {
+  background-color: #5B6E8C;
+  color: #E2EEFF;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.sticky-navigation h4 {
+  font-size: 21px;
+}
+.sticky-navigation h5 {
+  font-size: 19px;
+}
+.sticky-navigation p {
+  font-size: 17px;
+}
+.sticky-navigation a {
+  color: #E2EEFF;
+  font-size: 15px;
+}
+.sticky-navigation a:hover {
+  color: #F25F5C;
+  text-decoration: none;
 }

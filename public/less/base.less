@@ -137,6 +137,28 @@ body {
   }
   .static {
     color: @black;
+    word-wrap: break-word;
+
+    @media (max-width: 400px) {
+      width: 390px;
+    }
+
+    @media (min-width: 401px) and (max-width: 768px) {
+      width: 600px;
+    }
+
+    @media (min-width: 769px) and (max-width: 992px) {
+      width: 970px;
+    }
+
+    @media (min-width: 993px) and (max-width: 1200px) {
+      width: 1170px;
+    }
+
+    @media (min-width: 1201px) {
+      width: 1170px;
+    }
+
   }
   .magic {
     background-color: @black;
@@ -214,7 +236,7 @@ li.tutorial-item {
 
 #create-tutorial {
     height: 100%;
-
+    padding-bottom: 80px;
     textarea#content.form-control {
         height: 490px;
     }
@@ -309,4 +331,28 @@ footer {
     padding-bottom: 80px;
   }
 
+}
+
+.sticky-navigation {
+  background-color: @blue-gray;
+  color: @text-light-gray;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  h4 {
+    font-size: 21px;
+  }
+  h5 {
+    font-size: 19px;
+  }
+  p {
+    font-size: 17px;
+  }
+  a {
+    color: @text-light-gray;
+    font-size: 15px;
+  }
+  a:hover {
+    color: @pastel-red;
+    text-decoration: none;
+  }
 }
