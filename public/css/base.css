@@ -10,7 +10,6 @@ body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -50px;
 }
 .img-js {
   width: 65px;
@@ -185,7 +184,7 @@ li.tutorial-item a:hover {
   background-color: #5B6E8C;
   color: #E2EEFF;
   padding-top: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 0px;
 }
 .email-signup h4 {
   font-size: 21px;
