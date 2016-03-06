@@ -254,7 +254,15 @@ module.exports = function (db) {
     },
 
     addToMailingList: function (req, res, next) {
-
+      var email = req.body.email;
+      new db.MailingList({email: email}).save()
+        .then(function () {
+          return res.redirect('/');
+        })
+        .catch(function () {
+          return res.redirect('/');
+        })
+      ;
     },
 
   }

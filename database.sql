@@ -58,7 +58,7 @@ CREATE TABLE jobs_tags (
 
 CREATE TABLE mailing_list (
     mailing_list_id SERIAL PRIMARY KEY,
-    email VARCHAR
+    email VARCHAR UNIQUE
 );
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO practicalprogramming_user;

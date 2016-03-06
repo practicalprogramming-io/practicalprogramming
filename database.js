@@ -13,6 +13,7 @@ var bcrypt = require('bcrypt-nodejs')
   , TutorialsTags
   , Jobs
   , JobsTags
+  , MailingList
 ;
 
 bookshelf.Model.prototype.save = function () {
@@ -125,6 +126,11 @@ JobsTags = bookshelf.Model.extend({
   }
 });
 
+MailingList = bookshelf.Model.extend({
+  tableName: 'mailing_list',
+  idAttribute: 'mailing_list_id'
+});
+
 
 module.exports = {
   Users: Users,
@@ -138,4 +144,5 @@ module.exports = {
   TutorialsTags: TutorialsTags,
   Jobs: Jobs,
   JobsTags: JobsTags,
+  MailingList: MailingList,
 };
