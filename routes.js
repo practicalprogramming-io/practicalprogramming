@@ -51,6 +51,9 @@ module.exports = function (db) {
           tutorials = tutorials.toJSON();
           new db.Tags().fetchAll()
             .then(function (tags) {
+              if (tag === 'all') {
+                tag = null;
+              }
               if (tag) {
                 tutorials = tutorials.filter(function (x) {
                   for (var i = 0; i < x.tags.length; i++) {
@@ -60,9 +63,11 @@ module.exports = function (db) {
                   }
                 });
               }
+              tags = tags.toJSON();
+              tags.unshift({'tags_id': 0, 'tag_name': 'all'});
               return res.render('tutorials.html', {
                 tutorials: tutorials,
-                tags: tags.toJSON(),
+                tags: tags,
                 activeTag: tag
               });
             })

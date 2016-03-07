@@ -10,6 +10,7 @@ body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
+  margin-bottom: 50px;
 }
 .img-js {
   width: 65px;
@@ -136,9 +137,6 @@ body {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-.tutorial-item {
-  font-size: 17px;
-}
 .label.label-tag {
   background-color: #5998FF;
   border-bottom: thin solid #38746A;
@@ -164,6 +162,10 @@ li.tutorial-item {
   padding-bottom: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
+  font-size: 17px;
+}
+li.tutorial-item .date {
+  font-size: 14px;
 }
 li.tutorial-item a.tutorial-link {
   color: #202532;
@@ -185,6 +187,7 @@ li.tutorial-item a:hover {
   color: #E2EEFF;
   padding-top: 20px;
   padding-bottom: 0px;
+  margin-bottom: -50px;
 }
 .email-signup h4 {
   font-size: 21px;
@@ -258,6 +261,9 @@ footer .navbar-right {
 .resources .resources-list {
   padding-bottom: 80px;
 }
+.resources .resources-list a {
+  font-size: 17px;
+}
 .sticky-navigation {
   background-color: #5B6E8C;
   color: #E2EEFF;
@@ -280,4 +286,7 @@ footer .navbar-right {
 .sticky-navigation a:hover {
   color: #F25F5C;
   text-decoration: none;
+}
+.body-text {
+  font-size: 18px;
 }

@@ -3,6 +3,9 @@
     {{ tutorial.title }}
   </a>
   <br/>
+  <div class="date">
+    {{ tutorial.created_datetime | date("MM-DD-YYYY") }}
+  </div>
   {{ tutorial.description }}
   <br/>
   {% for tag in tutorial.tags %}

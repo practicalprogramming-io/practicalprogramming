@@ -4,6 +4,7 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , passport = require('passport')
   , nunjucks = require('nunjucks')
+  , dateFilter = require('nunjucks-date-filter')
   , config = require('./config.json')
   , database = require('./database')
   , routes = require('./routes')(database)
@@ -28,7 +29,9 @@ nunjucks.configure(
   ['views', 'views/admin'], {
   autoescape: true,
   express: server
-});
+}).addFilter('date', dateFilter);
+
+
 
 server.use(passport.initialize());
 server.use(passport.session());
@@ -163,7 +166,7 @@ server.post('/jobs/:job/',
 ;
 
 // Mailing List Routes =========================================================
-server.post('/mailing/', 
+server.post('/mailing/',
   function (req, res, next) {
     return next();
 }, routes.addToMailingList)
@@ -235,7 +238,13 @@ server.get('/philosophy/',
     return res.render('philosophy.html');
   })
 ;
-
+/*
+server.get('/become-a-software-engineer/',
+  function (req, res, next) {
+    return res.render('become.html');
+  })
+;
+*/
 module.exports = function (callback) {
   callback(server);
 };
