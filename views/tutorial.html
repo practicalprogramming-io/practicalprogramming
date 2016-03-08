@@ -2,10 +2,11 @@
 
 {% block content %}
 
-<div class="container">
-    <h3>{{ title }}</h3>
-    <p>Author: {{ author }}</p>
-    {{ content|safe }}
+<div class="markdown-tutorial">
+  <div class="container">
+      <h3>{{ title }}</h3>
+      <p>Author: {{ author }}</p>
+      {{ content|safe }}
+  </div>
 </div>
-
 {% endblock %}
